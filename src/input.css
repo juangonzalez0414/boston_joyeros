@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #C5A028;
+  --color-gold-light: #D4AF37;
+  --color-gold-dark: #A68018;
+  --color-gold-pale: #F1D592;
+  --color-onyx: #1A1A1A;
+  --color-pearl: #F8F9FA;
+  
+  --font-playfair: "Playfair Display", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+@layer base {
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #F8F9FA; }
+  ::-webkit-scrollbar-thumb { background: #C5A028; border-radius: 4px; }
+}
+
+@layer components {
+  .glass-nav {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .text-gradient-gold {
+      background: linear-gradient(to right, #A68018, #D4AF37, #A68018);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+
+  .bg-gold-gradient {
+      background: linear-gradient(135deg, #A68018 0%, #D4AF37 50%, #A68018 100%);
+  }
+
+  .card-shadow {
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+  }
+  
+  .gold-line {
+      height: 2px;
+      background: linear-gradient(to right, transparent, #C5A028, transparent);
+      width: 100%;
+  }
+}
