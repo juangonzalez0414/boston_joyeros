@@ -233,9 +233,6 @@
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
-  .right-4 {
-    right: calc(var(--spacing) * 4);
-  }
   .right-8 {
     right: calc(var(--spacing) * 8);
   }
@@ -247,9 +244,6 @@
   }
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
-  }
-  .bottom-4 {
-    bottom: calc(var(--spacing) * 4);
   }
   .bottom-10 {
     bottom: calc(var(--spacing) * 10);
@@ -1076,16 +1070,6 @@
       line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
-  .sm\:right-6 {
-    @media (width >= 40rem) {
-      right: calc(var(--spacing) * 6);
-    }
-  }
-  .sm\:bottom-6 {
-    @media (width >= 40rem) {
-      bottom: calc(var(--spacing) * 6);
-    }
-  }
   .sm\:block {
     @media (width >= 40rem) {
       display: block;
@@ -1181,16 +1165,6 @@
     @media (width >= 40rem) {
       --tw-tracking: 0.35em;
       letter-spacing: 0.35em;
-    }
-  }
-  .md\:right-10 {
-    @media (width >= 48rem) {
-      right: calc(var(--spacing) * 10);
-    }
-  }
-  .md\:bottom-10 {
-    @media (width >= 48rem) {
-      bottom: calc(var(--spacing) * 10);
     }
   }
   .md\:col-span-2 {
@@ -1466,6 +1440,20 @@
     background: #C5A028;
     border-radius: 4px;
   }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  img, svg, video, canvas {
+    max-width: 100%;
+    height: auto;
+  }
 }
 @layer components {
   .glass-nav {
@@ -1488,6 +1476,39 @@
     height: 2px;
     background: linear-gradient(to right, transparent, #C5A028, transparent);
     width: 100%;
+  }
+}
+@layer utilities {
+  #floating-social {
+    right: calc(env(safe-area-inset-right, 0px) + 16px);
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  }
+  @media (max-width: 420px) {
+    #floating-social {
+      right: calc(env(safe-area-inset-right, 0px) + 10px);
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 10px);
+    }
+    #navbar {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    #navbar > div:first-child {
+      letter-spacing: 0.1em;
+    }
+    #inicio h1 {
+      font-size: clamp(2.25rem, 10vw, 3.25rem);
+      line-height: 1.05;
+    }
+  }
+  @media (max-width: 360px) {
+    #navbar > div:first-child {
+      letter-spacing: 0.08em;
+    }
+  }
+  @media (hover: none) and (pointer: coarse) {
+    #floating-social a {
+      transform: none !important;
+    }
   }
 }
 @property --tw-translate-x {
